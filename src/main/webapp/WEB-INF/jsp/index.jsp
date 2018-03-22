@@ -25,6 +25,7 @@
         <td>${list.amount}</td>
         <td>
             <a href="/view/${list.id}">View</a>
+            <a href="/delete/${list.id}">Delete</a>
         </td>
     </tr>
     </c:forEach>
