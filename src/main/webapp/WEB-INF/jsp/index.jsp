@@ -26,6 +26,7 @@
         <td>
             <a href="/view/${list.id}">View</a>
             <a href="/delete/${list.id}">Delete</a>
+            <a href="/edit/${list.id}">Edit</a>
         </td>
     </tr>
     </c:forEach>
@@ -33,6 +34,7 @@
 </table>
 <hr/>
 <form method="post" action="/save">
+    <input type="hidden" name="id" value="">
     Malt name:<br>
     <input type="text" name="name" value="">
     <br>
@@ -45,7 +47,7 @@
     <input type="number" name="amount" value="0.0">
     <br>
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Add malt">
 </form>
 
 </body>

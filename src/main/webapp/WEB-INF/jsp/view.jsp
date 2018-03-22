@@ -7,8 +7,6 @@
 </head>
 <body>
 
-<h2>HTML Table</h2>
-
 <table>
     <tr>
         <th>ID</th>
@@ -27,6 +25,7 @@
         <td>${lists.amount}</td>
     </tr>
 </table>
+<hr/>
 <a href="/">Back</a>
 
 </body>

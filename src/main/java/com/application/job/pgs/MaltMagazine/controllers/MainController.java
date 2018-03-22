@@ -1,6 +1,5 @@
 package com.application.job.pgs.MaltMagazine.controllers;
 
-import com.application.job.pgs.MaltMagazine.models.AppUsers;
 import com.application.job.pgs.MaltMagazine.models.AppUsersRepo;
 import com.application.job.pgs.MaltMagazine.models.MaltModel;
 import com.application.job.pgs.MaltMagazine.models.MaltModelRepo;
@@ -29,11 +28,19 @@ public class MainController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ModelAndView doSave(@RequestParam("name") String name,
+    public ModelAndView doSave(@RequestParam("id") String id,
+                               @RequestParam("name") String name,
                                @RequestParam("description") String description,
                                @RequestParam("amount") Double amount){
+
         ModelAndView mv = new ModelAndView("redirect:/");
-        MaltModel maltModel = new MaltModel();
+        MaltModel maltModel;
+        if(!id.isEmpty()) {
+            maltModel = (MaltModel) maltModelRepo.findOne(Integer.parseInt(id));
+        }
+        else {
+            maltModel = new MaltModel();
+        }
         maltModel.setName(name);
         maltModel.setDescription(description);
         maltModel.setAmount(amount);
@@ -52,6 +59,13 @@ public class MainController {
     public ModelAndView doDelete(@PathVariable("id") int id){
         ModelAndView mv = new ModelAndView("redirect:/");
         maltModelRepo.delete(id);
+        return mv;
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView doEdit(@PathVariable("id") int id){
+        ModelAndView mv = new ModelAndView("edit");
+        mv.addObject("lists", maltModelRepo.findOne(id));
         return mv;
     }
 }
