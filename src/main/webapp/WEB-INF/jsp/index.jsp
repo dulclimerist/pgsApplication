@@ -44,6 +44,22 @@
     </c:forEach>
 
 </table>
+<hr/>
+<form method="post" action="/save">
+    Malt name:<br>
+    <input type="text" name="name" value="">
+    <br>
+    Description:
+    <br>
+    <input type="text" name="description" value="">
+    <br>
+    Amount:
+    <br>
+    <input type="number" name="amount" value="0.0">
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>

@@ -8,16 +8,16 @@ public class MaltModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public int id;
+    private int id;
 
     @Column(name = "name")
-    public String name;
+    private String name;
 
     @Column(name = "description")
-    public String description;
+    private String description;
 
     @Column(name = "amount")
-    public double amount;
+    private double amount;
 
     public MaltModel() {
     }
