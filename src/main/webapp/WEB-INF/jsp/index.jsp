@@ -39,7 +39,9 @@
         <td>${list.name}</td>
         <td>${list.description}</td>
         <td>${list.amount}</td>
-        <td>Germany</td>
+        <td>
+            <a href="/view/${list.id}">View</a>
+        </td>
     </tr>
     </c:forEach>
 

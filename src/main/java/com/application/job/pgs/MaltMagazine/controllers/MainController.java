@@ -6,6 +6,7 @@ import com.application.job.pgs.MaltMagazine.models.MaltModel;
 import com.application.job.pgs.MaltMagazine.models.MaltModelRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,6 +38,13 @@ public class MainController {
         maltModel.setDescription(description);
         maltModel.setAmount(amount);
         maltModelRepo.save(maltModel);
+        return mv;
+    }
+
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    public ModelAndView doView(@PathVariable("id") int id){
+        ModelAndView mv = new ModelAndView("view");
+        mv.addObject("lists", maltModelRepo.findOne(id));
         return mv;
     }
 }
